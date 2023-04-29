@@ -1,16 +1,49 @@
 import styles from "../../styles/Group.module.css";
 import Link from "next/link";
 import GroupInfo from "@/components/GroupInfo";
+import { getCookie } from "@/components/Cookie";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+interface groupData {
+  group_name: string;
+  created_At: string;
+  group_uuid: string;
+  group_code: string;
+}
 
 export default function Group() {
+  const [groups, setGroups] = useState([]);
+  const fetchUser = async () => {
+    const token = getCookie("token");
+    const base64url = token.split(".")[1];
+    const base64 = base64url.replace("-", "+").replace("_", "/");
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map(function (c) {
+          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join("")
+    );
+
+    const jsonData = JSON.parse(jsonPayload);
+
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    const response = await axios.get(`https://controlz-test.com/qna/my_info?user_uuid=${jsonData.user_uuid}`);
+    setGroups(response.data[0].groups);
+  };
+  useEffect(() => {
+    fetchUser();
+  }, []);
   return (
     <div className={styles.group_div}>
       <div className={styles.container}>
         <h1 className={styles.title}>나의 그룹</h1>
-        <GroupInfo name="그루비룸" date="2023.04.29" members={["최익준", "오다현", "이호성"]} code="af34dD" />
-        <GroupInfo name="새 그룹" date="2022.01.01" members={["최익준"]} code="adfae4" />
-        <GroupInfo name="그루비룸" date="2023.04.29" members={["최익준", "오다현"]} code="432hsd" />
-        <GroupInfo name="그루비룸" date="2023.04.29" members={["최익준"]} code="a52kd0" />
+        {groups.map((group: groupData) => {
+          console.log(group);
+          return <GroupInfo name={group.group_name} date={group.created_At.split("T")[0]} members={["최익준", "오다현", "이호성"]} code={group.group_code} key={group.group_uuid} />;
+        })}
         <div className={styles.group_info_div} style={{ height: 200, display: "inline-flex", textAlign: "center" }}>
           <Link href="/group/join" className={styles.group_create_btn}>
             + 그룹 추가하기

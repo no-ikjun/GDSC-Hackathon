@@ -48,9 +48,11 @@
 }
 .top {
   border-radius: 10px 10px 0px 0px;
+  border-width: 1px 1px 0px;
 }
 .bottom {
   border-radius: 0px 0px 10px 10px;
+  border-width: 0px 1px 1px;
 }
 .middle {
   border-radius: 0px 0px 0px 0px;

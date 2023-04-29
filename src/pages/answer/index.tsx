@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "../../styles/Answer.module.css";
 import Link from "next/link";
+import IndexPage from "@/components/Head";
 
 export default function Answer() {
   const [answer, setAnswer] = useState("");
@@ -27,7 +28,9 @@ export default function Answer() {
                 A. 오늘은 이것과 저것을 먹었습니다. 정말 맛있었습니다.
               </p>
             </div>
-            <span className={styles.answer_list_range}>전체공개</span>
+            <Link href="/answer/public?question=adfasdf" className={styles.answer_list_range}>
+              다른 의견 보기 →
+            </Link>
           </div>
           <hr className={styles.answer_list_hr} />
           <div className={styles.answer_list}>
@@ -47,7 +50,6 @@ export default function Answer() {
                 A. 오늘은 이것과 저것을 먹었습니다. 정말 맛있었습니다.
               </p>
             </div>
-            <span className={styles.answer_list_range}>전체공개</span>
           </div>
           <hr className={styles.answer_list_hr} />
           <div className={styles.answer_list}>
@@ -67,7 +69,6 @@ export default function Answer() {
                 A. 오늘은 이것과 저것을 먹었습니다. 정말 맛있었습니다.
               </p>
             </div>
-            <span className={styles.answer_list_range}>전체공개</span>
           </div>
           <hr className={styles.answer_list_hr} />
           <div className={styles.answer_list}>
@@ -87,7 +88,6 @@ export default function Answer() {
                 A. 오늘은 이것과 저것을 먹었습니다. 정말 맛있었습니다.
               </p>
             </div>
-            <span className={styles.answer_list_range}>전체공개</span>
           </div>
           <hr className={styles.answer_list_hr} />
         </div>

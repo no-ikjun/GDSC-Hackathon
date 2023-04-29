@@ -48,13 +48,18 @@
   padding: 3px;
   padding-top: 4px;
   padding-bottom: 2px;
-  width: 70px;
+  width: 150px;
   height: 27px;
   border-radius: 15px;
   margin-right: 10px;
   text-align: center;
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
   margin-left: auto;
+  text-decoration: none;
+  color: black;
+}
+.answer_list_range:hover {
+  text-decoration: underline;
 }
 .answer_list_question {
   font-size: 20px;

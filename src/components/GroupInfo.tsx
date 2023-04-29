@@ -8,9 +8,18 @@ interface GroupInfoProps {
   code: string;
 }
 
+const handleCopyClipboard = (text: string) => {
+  const $textarea = document.createElement("textarea");
+  document.body.appendChild($textarea);
+  $textarea.value = text;
+  $textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild($textarea);
+};
+
 export default function GroupInfo({ name, date, members, code }: GroupInfoProps) {
   const copyCode = () => {
-    navigator.clipboard.writeText(code);
+    handleCopyClipboard(code);
     alert("클립보드에 복사되었습니다.\n그룹 코드를 공유해주세요!");
   };
   return (

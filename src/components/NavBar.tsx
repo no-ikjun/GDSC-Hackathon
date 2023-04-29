@@ -4,12 +4,18 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/NavBar.module.css";
+import { getCookie } from "./Cookie";
 
 export default function NavBar() {
   const router = useRouter();
   // const [themeMode, setThemeMode] = useState<"dark" | "light">("light");
   // const { theme, setTheme } = useTheme();
-
+  const [isLogin, setIsLogin] = useState(false);
+  useEffect(() => {
+    if (getCookie("token")) {
+      setIsLogin(true);
+    }
+  }, []);
   return (
     <nav className={styles.navbar}>
       <Link href="/">
@@ -26,9 +32,9 @@ export default function NavBar() {
       </Link>
       <div style={{ marginLeft: "auto", display: `${router.pathname === "/" ? "flex" : "none"}` }}>
         <Link href="/login" className={styles.nav_link_btn}>
-          <span className={styles.nav_link_btn_text}>로그인</span>
+          <span className={styles.nav_link_btn_text}>{isLogin ? "로그아웃" : "로그인"}</span>
         </Link>
-        <Link href="/signup" className={styles.signup_btn}>
+        <Link href="/signup" className={styles.signup_btn} style={{ display: `${isLogin ? "none" : "block"}` }}>
           <span className={styles.nav_link_btn_text} style={{ color: "white" }}>
             처음이신가요?
           </span>
