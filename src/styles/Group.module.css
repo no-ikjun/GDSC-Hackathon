@@ -105,7 +105,7 @@
   justify-content: center;
 }
 .group_create_btn {
-  width: 200px;
+  margin-top: 10px;
   font-size: 25px;
   font-family: "sunshine_regular";
   border: none;
@@ -137,6 +137,100 @@
 }
 .question_info_div {
   width: 80%;
-  height: 100px;
-  background-color: #858585;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.question_date {
+  font-size: 17px;
+  color: #5e5e5e;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+.question_content {
+  font-size: 25px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  font-family: "sunshine_regular";
+}
+.decrease_date {
+  cursor: pointer;
+  animation: move_date_left 5s infinite;
+}
+@keyframes move_date_left {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-15px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.increase_date {
+  cursor: pointer;
+  animation: move_date_right 5s infinite;
+}
+@keyframes move_date_right {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.answer_div {
+  margin-top: 50px;
+  width: 100%;
+}
+.answer_content_div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.answer_profile_div {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.answer_profile_img_div {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.answer_profile_name {
+  display: block;
+  margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-family: "sunshine_regular";
+}
+.answer_profile_time {
+  display: block;
+  margin-left: 12px;
+  margin-top: 0;
+  font-size: 15px;
+  color: #858585;
+}
+.answer_content_main {
+  font-size: 23px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.answer_hr {
+  height: 1px;
+  background-color: rgba(118, 118, 118, 0.6);
+  border: none;
+  margin-top: 10px;
 }

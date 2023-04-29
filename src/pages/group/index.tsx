@@ -11,11 +11,11 @@ export default function Group() {
         <GroupInfo name="새 그룹" date="2022.01.01" members={["최익준"]} code="adfae4" />
         <GroupInfo name="그루비룸" date="2023.04.29" members={["최익준", "오다현"]} code="432hsd" />
         <GroupInfo name="그루비룸" date="2023.04.29" members={["최익준"]} code="a52kd0" />
-      </div>
-      <div className={styles.new_group_div}>
-        <Link href="/group/join" className={styles.group_create_btn}>
-          + 그룹 추가하기
-        </Link>
+        <div className={styles.group_info_div} style={{ height: 200, display: "inline-flex", textAlign: "center" }}>
+          <Link href="/group/join" className={styles.group_create_btn}>
+            + 그룹 추가하기
+          </Link>
+        </div>
       </div>
     </div>
   );

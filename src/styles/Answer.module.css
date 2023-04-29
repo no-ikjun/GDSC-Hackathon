@@ -1,0 +1,16 @@
+@import url("font.css");
+.answer_div {
+  padding-top: 80px;
+}
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "sunshine_bold";
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
