@@ -1,6 +1,6 @@
 import styles from "../styles/Group.module.css";
 import Image from "next/image";
-
+import Link from "next/link";
 interface GroupInfoProps {
   name: string;
   date: string;
@@ -30,9 +30,18 @@ export default function GroupInfo({ name, date, members, code }: GroupInfoProps)
           );
         })}
       </div>
-      <button className={styles.group_info_member_invite} onClick={copyCode}>
-        초대하기
-      </button>
+      <div style={{ display: "inline-flex" }}>
+        <button className={styles.group_info_member_invite} onClick={copyCode} style={{ backgroundColor: "transparent", color: "#1a6dff" }}>
+          초대하기
+        </button>
+        <Link
+          href={"/group/" + code}
+          className={styles.group_info_member_invite}
+          style={{ padding: "1px 6px", fontFamily: "sans-serif", boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: "center" }}
+        >
+          기록보기
+        </Link>
+      </div>
     </div>
   );
 }
