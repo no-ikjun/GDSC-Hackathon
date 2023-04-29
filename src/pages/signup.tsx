@@ -15,6 +15,9 @@ export default function Login() {
           <div className={styles.login_child_div}>
             <div className={styles.login_child_ment_div}>
               <p className={styles.login_ment}>회원가입</p>
+              <Link href="/login" className={styles.go_find}>
+                ← 로그인 페이지로
+              </Link>
             </div>
             <form>
               <div className={styles.input_div}>

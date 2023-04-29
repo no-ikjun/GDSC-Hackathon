@@ -16,11 +16,11 @@ export default function Home() {
       <div className={["main-div", styles.main_first_div].join(" ")} style={{ backgroundColor: "#FFF" }}>
         <div className={styles.main_ment_div}>
           <p className={styles.main_ment_sub}>오늘의 질문</p>
-          <p className={styles.main_ment}>질문은 여기에 입력하면 됩니다</p>
+          <p className={styles.main_ment}>살면서 가장 행복했던 순간은?</p>
           <button className={styles.login_btn}>답변하기 →</button>
         </div>
-        <div className={styles.bottom_arrow_div} onClick={scroll_force}>
-          <Image src="/down-arrow.png" width={45} height={45} alt="arrow" />
+        <div className={styles.bottom_arrow_div}>
+          <Image src="/down-arrow.png" width={45} height={45} alt="arrow" onClick={scroll_force} style={{ cursor: "pointer" }} />
         </div>
       </div>
       <div className="main-div">

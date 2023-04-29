@@ -19,7 +19,7 @@ export default function NavBar() {
         <span className={styles.nav_link}>그룹</span>
       </Link>
       <Link href="/answer" className={styles.nav_link_a}>
-        <span className={styles.nav_link}>답변</span>
+        <span className={styles.nav_link}>기록</span>
       </Link>
       <Link href="/info" className={styles.nav_link_a}>
         <span className={styles.nav_link}>정보</span>
