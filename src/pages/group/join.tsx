@@ -30,6 +30,7 @@ export default function JoinGroup() {
       .then((res) => {
         if (res.status === 201) {
           console.log(res.data);
+          window.location.href = "/group";
         }
       })
       .catch((err) => {

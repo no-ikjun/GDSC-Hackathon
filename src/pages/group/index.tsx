@@ -5,11 +5,16 @@ import { getCookie } from "@/components/Cookie";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+interface userData {
+  user_name: string;
+}
+
 interface groupData {
   group_name: string;
   created_At: string;
   group_uuid: string;
   group_code: string;
+  users: userData[];
 }
 
 export default function Group() {
@@ -41,8 +46,12 @@ export default function Group() {
       <div className={styles.container}>
         <h1 className={styles.title}>나의 그룹</h1>
         {groups.map((group: groupData) => {
-          console.log(group);
-          return <GroupInfo name={group.group_name} date={group.created_At.split("T")[0]} members={["최익준", "오다현", "이호성"]} code={group.group_code} key={group.group_uuid} />;
+          const temp = group.users;
+          const arr = [];
+          for (var i = 0; i < temp.length; i++) {
+            arr.push(temp[i].user_name);
+          }
+          return <GroupInfo name={group.group_name} date={group.created_At.split("T")[0]} members={arr} code={group.group_code} key={group.group_uuid} />;
         })}
         <div className={styles.group_info_div} style={{ height: 200, display: "inline-flex", textAlign: "center" }}>
           <Link href="/group/join" className={styles.group_create_btn}>
