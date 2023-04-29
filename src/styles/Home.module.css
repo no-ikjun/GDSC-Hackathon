@@ -60,17 +60,19 @@
 .login_btn {
   width: 200px;
   margin-top: 30px;
-  height: 45px;
   border-radius: 4px;
   border: none;
   font-size: 17px;
   color: white;
-  align-items: center;
   background-color: #1a6dff;
   cursor: pointer;
   transition: 0.3s;
   font-family: "sunshine_regular";
   padding-bottom: 5px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 13px;
+  text-decoration: none;
 }
 .login_btn:hover {
   transition: 0.3s;
