@@ -1,3 +1,120 @@
+@import url("font.css");
 .group_div {
   padding-top: 80px;
+}
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "sunshine_bold";
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.group_info_div {
+  width: 32%;
+  display: inline-flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-family: "sunshine_regular";
+}
+.group_info_div:nth-child(3n) {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+.group_info_div:nth-child(3n + 1) {
+  margin-left: 1%;
+  margin-right: 0;
+}
+.group_info_div:nth-child(3n + 2) {
+  margin-left: 0;
+  margin-right: 1%;
+}
+.group_info_title {
+  margin: 10px;
+  margin-bottom: 0;
+  overflow-x: auto;
+}
+.group_info_date {
+  margin: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: #858585;
+}
+.group_info_member_title {
+  margin: 10px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+.group_info_member_div {
+  margin: 5px;
+  margin-top: 0;
+  margin-left: 10px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  word-break: keep-all;
+  align-items: center;
+}
+.group_info_member_img_div {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.group_info_member_name {
+  margin-top: -5px;
+  margin-left: 5px;
+  font-size: 15px;
+}
+.group_info_member_invite {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 35px;
+  font-size: 17px;
+  border: none;
+  background-color: #1a6dff;
+  color: #fff;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+.group_info_member_invite:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.new_group_div {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.group_create_btn {
+  width: 200px;
+  font-size: 25px;
+  font-family: "sunshine_regular";
+  border: none;
+  background-color: transparent;
+  color: rgb(100, 100, 100);
+  border-radius: 20px;
+  transition: 0.3s;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.group_create_btn:hover {
+  color: black;
+  transition: 0.3s;
+  text-decoration: underline;
 }
