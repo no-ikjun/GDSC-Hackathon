@@ -7,6 +7,7 @@ import axios from "axios";
 
 export default function Home() {
   const [windowSize, setWindowSize] = useState(0);
+  const [widthHeight, setWidthHeight] = useState(0);
 
   const [question, setQuestion] = useState("");
 
@@ -19,6 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     setWindowSize(window.innerHeight);
+    setWidthHeight(window.innerWidth);
     getTodayQuestion();
   }, []);
 
@@ -39,11 +41,9 @@ export default function Home() {
           <Image src="/down-arrow.png" width={45} height={45} alt="arrow" onClick={scroll_force} style={{ cursor: "pointer" }} />
         </div>
       </div>
-      <div className="main-div">
+      <div className={["main-div", styles.main_intro].join(" ")}>
         <div className={styles.intro_div}>
-          <p className={styles.intro_ment} style={{ marginTop: 80 }}>
-            우리 서비스는 이런 서비스이다..
-          </p>
+          <Image src="/background_with_ment.png" className={styles.main_intro_img} width={widthHeight + 300} height={windowSize} alt="main_background" />
         </div>
       </div>
       <style jsx>
