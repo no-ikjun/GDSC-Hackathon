@@ -4,7 +4,7 @@ import Image from "next/image";
 import Answer from "@/components/Answer";
 import { getCookie } from "@/components/Cookie";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import GroupList from "@/components/GroupList";
 
 export default function GroupHistory() {
@@ -16,7 +16,7 @@ export default function GroupHistory() {
   const [question, setQuestion] = useState("");
   const [questionUuid, setQuestionUuid] = useState("");
 
-  const getData_1 = async () => {
+  const getData_1 = useCallback(async () => {
     const token = getCookie("token");
     const base64url = token.split(".")[1];
     const base64 = base64url.replace("-", "+").replace("_", "/");
@@ -55,7 +55,7 @@ export default function GroupHistory() {
       .catch((err) => {
         console.log(err);
       });
-  };
+  }, [group_id]);
 
   const getData_2 = async () => {
     const token = getCookie("token");
@@ -88,7 +88,7 @@ export default function GroupHistory() {
 
   useEffect(() => {
     getData_1();
-  }, []);
+  }, [getData_1]);
 
   return (
     <div className={styles.group_div}>

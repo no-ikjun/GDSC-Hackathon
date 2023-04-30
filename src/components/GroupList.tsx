@@ -1,6 +1,6 @@
 import Answer from "./Answer";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styles from "../styles/Group.module.css";
 import { getCookie } from "./Cookie";
 
@@ -12,7 +12,7 @@ interface GroupListProps {
 export default function GroupList({ groupUuid, questionUuid }: GroupListProps) {
   const [answerList, setAnswerList] = useState([]);
 
-  const getData = async () => {
+  const getData = useCallback(async () => {
     const token = getCookie("token");
     const base64url = token.split(".")[1];
     const base64 = base64url.replace("-", "+").replace("_", "/");
@@ -29,30 +29,37 @@ export default function GroupList({ groupUuid, questionUuid }: GroupListProps) {
 
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-    console.log(groupUuid);
+    console.log(questionUuid);
     const response = await axios
-      .get(`https://controlz-test.com/qna/answer/group?group_uuid=${groupUuid}&question_uuid=${questionUuid}}`)
+      .get(`https://controlz-test.com/qna/answer/group?group_uuid=${groupUuid}&question_uuid=${questionUuid}`)
       .then((res) => {
         console.log(res.data);
-        //setAnswerList(res.data);
+        setAnswerList(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  };
+  }, [groupUuid, questionUuid]);
   useEffect(() => {
+    if (!groupUuid || !questionUuid) return;
     setTimeout(() => {
       getData();
     }, 3000);
-  }, []);
+  }, [getData, groupUuid, questionUuid]);
 
   return (
     <div>
-      <Answer name="최익준" age="30대" answer="아니 프엔 개발을 혼자 하는게 말이 된다고 생각함?" />
+      {answerList.map((answer) => {
+        return (
+          <div key={answer}></div>
+          //<Answer name={answer.user_name} age={answer.user_age} answer={answer.answer} />
+        );
+      })}
+      <Answer name="최익준" age="20대" answer="노래 듣기?" />
       <hr className={styles.answer_hr} />
-      <Answer name="오다현" age="20대" answer="아 자고싶다" />
+      <Answer name="오다현" age="20대" answer="잠자기" />
       <hr className={styles.answer_hr} />
-      <Answer name="이호성" age="10대" answer="저기서 데이터가 빈 칸일 경우에는 changed date에서 ... " />
+      <Answer name="이호성" age="10대" answer="굿굿" />
       <hr className={styles.answer_hr} />
     </div>
   );
