@@ -107,3 +107,29 @@
 .intro_div {
   margin-top: 120px;
 }
+
+@media screen and (max-width: 800px) {
+  .main_ment {
+    font-size: 25px;
+  }
+  .main_ment_sub {
+    font-size: 20px;
+  }
+  .login_btn {
+    width: 150px;
+    font-size: 15px;
+  }
+  .bottom_arrow_div {
+    display: none;
+  }
+  .intro_div {
+    margin-top: 50px;
+  }
+  .main_intro {
+    display: none;
+  }
+  .mobile_main {
+    margin-left: 250px;
+    margin-top: 200px;
+  }
+}

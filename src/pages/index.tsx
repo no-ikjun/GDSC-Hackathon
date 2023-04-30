@@ -29,7 +29,7 @@ export default function Home() {
     window.scrollTo(0, windowSize);
   };
   return (
-    <div>
+    <div className={styles.mobile_main}>
       <Head title="어스" description="매일 하나의 질문이 만드는 세상" />
       <div className={["main-div", styles.main_first_div].join(" ")} style={{ backgroundColor: "#FFF" }}>
         <div className={styles.main_ment_div}>
