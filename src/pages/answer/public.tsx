@@ -84,7 +84,7 @@ export default function Public() {
           <PublicQuestion />
         </div>
         <div className={styles.public_age_div}>
-          <select className={styles.public_age_select} onChange={minHandler} defaultValue={"10"}>
+          <select className={styles.public_age_select} onChange={minHandler} defaultValue={"default"}>
             <option value="default">나이대 선택</option>
             <option value="10">10대</option>
             <option value="20">20대</option>
@@ -95,7 +95,7 @@ export default function Public() {
             <option value="70">70대</option>
           </select>
           <p className={styles.public_age_div_text}>~</p>
-          <select className={styles.public_age_select} onChange={maxHandler} defaultValue={"100"}>
+          <select className={styles.public_age_select} onChange={maxHandler} defaultValue={"default"}>
             <option value="default">나이대 선택</option>
             <option value="20">10대</option>
             <option value="30">20대</option>
