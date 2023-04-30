@@ -234,3 +234,52 @@
   border: none;
   margin-top: 10px;
 }
+
+.public_age_div {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.public_age_div_text {
+  font-size: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.public_age_select {
+  font-size: 18px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+  transition: 0.3s;
+}
+.public_age_select:focus {
+  transition: 0.3s;
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.public_age_btn {
+  width: 50px;
+  margin-left: 20px;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  color: white;
+  background-color: #1a6dff;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "sunshine_regular";
+  padding-bottom: 5px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 13px;
+}
