@@ -6,6 +6,8 @@ import { getCookie } from "@/components/Cookie";
 import axios from "axios";
 import { useRouter } from "next/router";
 
+let randomString: string;
+
 function generateRandomString(length: number): string {
   let result = "";
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -80,23 +82,22 @@ export default function Answer() {
             else {
               const temp_arr = item.split("&&&");
               //console.log(temp_arr);
-              let randomString = generateRandomString(10);
               return (
                 <>
-                  <div className={styles.answer_list} key={`${randomString}`}>
+                  <div className={styles.answer_list} key={`${temp_arr[0] + temp_arr[1]}`}>
                     <div style={{ display: "flex", flexDirection: "column" }}>
                       <div style={{ display: "flex", flexDirection: "row" }}>
                         <span className={styles.answer_list_date}>{temp_arr[1]}일</span>
                         <p
                           className={styles.answer_list_question}
                           onClick={() => {
-                            answer !== `${randomString}` ? setAnswer(`${randomString}`) : setAnswer("");
+                            answer !== `${temp_arr[0] + temp_arr[1] + temp_arr[2]}` ? setAnswer(`${temp_arr[0] + temp_arr[1] + temp_arr[2]}`) : setAnswer("");
                           }}
                         >
                           Q. {temp_arr[2]}
                         </p>
                       </div>
-                      <p className={styles.answer_list_answer} style={{ display: `${answer === `${randomString}` ? "" : "none"}` }}>
+                      <p className={styles.answer_list_answer} style={{ display: `${answer === `${temp_arr[0] + temp_arr[1] + temp_arr[2]}` ? "" : "none"}` }}>
                         A. {temp_arr[0]}
                       </p>
                     </div>
