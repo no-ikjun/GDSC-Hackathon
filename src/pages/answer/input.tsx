@@ -77,7 +77,7 @@ export default function InputAnswer() {
             {" "}
             그룹 외의 사람들과 공유하기 <input type="checkbox" onClick={(e) => checkHandler(e)} onChange={checkHandler} checked={isCheck} />{" "}
           </span>
-          <button className={styles.input_btn} onClick={onSubmit} style={{ backgroundColor: `${isCheck ? "#a412ff" : "#0055ff"}` }}>
+          <button className={styles.input_btn} onClick={onSubmit} style={{ backgroundColor: `${isCheck ? "#c882cc" : "#e59e98"}` }}>
             {isCheck ? "모두와 공유" : "그룹에만 공유"}
           </button>
         </div>
