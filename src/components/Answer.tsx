@@ -15,7 +15,6 @@ export default function Answer({ name, answer }: GroupInfoProps) {
         </div>
         <div style={{ display: "flex", flexDirection: "column", height: 40 }}>
           <p className={styles.answer_profile_name}>{name}의 답변</p>
-          <p className={styles.answer_profile_time}>20대</p>
         </div>
       </div>
       <p className={styles.answer_content_main}>{answer}</p>

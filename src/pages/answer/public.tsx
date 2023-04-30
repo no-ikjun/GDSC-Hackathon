@@ -79,7 +79,7 @@ export default function Public() {
   return (
     <div className={styles.group_div}>
       <div className={styles.container}>
-        <h1 className={styles.title}></h1>
+        <h1 className={styles.title}>모두의 기록</h1>
         <div className={styles.question_div}>
           <PublicQuestion />
         </div>

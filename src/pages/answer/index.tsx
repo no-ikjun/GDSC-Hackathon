@@ -80,23 +80,23 @@ export default function Answer() {
             else {
               const temp_arr = item.split("&&&");
               //console.log(temp_arr);
-              const randomString = generateRandomString(10);
+              let randomString = generateRandomString(10);
               return (
                 <>
-                  <div className={styles.answer_list} key={randomString}>
+                  <div className={styles.answer_list} key={`${randomString}`}>
                     <div style={{ display: "flex", flexDirection: "column" }}>
                       <div style={{ display: "flex", flexDirection: "row" }}>
                         <span className={styles.answer_list_date}>{temp_arr[1]}일</span>
                         <p
                           className={styles.answer_list_question}
                           onClick={() => {
-                            answer !== randomString ? setAnswer(randomString) : setAnswer("");
+                            answer !== `${randomString}` ? setAnswer(`${randomString}`) : setAnswer("");
                           }}
                         >
                           Q. {temp_arr[2]}
                         </p>
                       </div>
-                      <p className={styles.answer_list_answer} style={{ display: `${answer === randomString ? "block" : "none"}` }}>
+                      <p className={styles.answer_list_answer} style={{ display: `${answer === `${randomString}` ? "" : "none"}` }}>
                         A. {temp_arr[0]}
                       </p>
                     </div>
