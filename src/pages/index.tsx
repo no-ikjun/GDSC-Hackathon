@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
+import Head from "@/components/Head";
 
 export default function Home() {
   const [windowSize, setWindowSize] = useState(0);
@@ -29,6 +30,7 @@ export default function Home() {
   };
   return (
     <div>
+      <Head title="어스" description="매일 하나의 질문이 만드는 세상" />
       <div className={["main-div", styles.main_first_div].join(" ")} style={{ backgroundColor: "#FFF" }}>
         <div className={styles.main_ment_div}>
           <p className={styles.main_ment_sub}>오늘의 질문</p>

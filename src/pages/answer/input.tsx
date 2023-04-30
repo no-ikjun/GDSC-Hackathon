@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { getCookie, setCookie } from "@/components/Cookie";
+import Head from "@/components/Head";
 
 export default function InputAnswer() {
   const [answer, setAnswer] = useState("");
@@ -63,6 +64,7 @@ export default function InputAnswer() {
   }, []);
   return (
     <div className={styles.input_div_main}>
+      <Head title="어스 | 답변" description="매일 하나의 질문이 만드는 세상" />
       <div className={styles.container}>
         <h1 className={styles.title}>답변하기</h1>
         <div className={styles.input_div_sub}>

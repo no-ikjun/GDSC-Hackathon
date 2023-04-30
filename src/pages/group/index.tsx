@@ -4,6 +4,7 @@ import GroupInfo from "@/components/GroupInfo";
 import { getCookie } from "@/components/Cookie";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Head from "@/components/Head";
 
 interface userData {
   user_name: string;
@@ -43,6 +44,7 @@ export default function Group() {
   }, []);
   return (
     <div className={styles.group_div}>
+      <Head title="어스 | 내 그룹" description="매일 하나의 질문이 만드는 세상" />
       <div className={styles.container}>
         <h1 className={styles.title}>나의 그룹</h1>
         {groups.map((group: groupData) => {

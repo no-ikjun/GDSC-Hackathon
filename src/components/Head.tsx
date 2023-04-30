@@ -9,6 +9,7 @@ export default function IndexPage({ title, description }: HeadProps) {
   return (
     <>
       <Head>
+        <link rel="icon" href="/main.png" />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta property="og:title" content={title} key="title" />

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { getCookie } from "@/components/Cookie";
 import axios from "axios";
+import Head from "@/components/Head";
 
 const handleCopyClipboard = (text: string) => {
   const $textarea = document.createElement("textarea");
@@ -54,6 +55,7 @@ export default function CreateGroup() {
   };
   return (
     <div className={styles.group_div}>
+      <Head title="어스 | 그룹 생성" description="매일 하나의 질문이 만드는 세상" />
       <div className={[styles.container, "group-div"].join(" ")}>
         <h1 className={styles.title}>그룹 생성하기</h1>
         <div className={styles.join_div}>

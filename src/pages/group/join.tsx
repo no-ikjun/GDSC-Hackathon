@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { getCookie } from "@/components/Cookie";
+import Head from "@/components/Head";
 
 export default function JoinGroup() {
   const [code, setCode] = useState("");
@@ -42,6 +43,7 @@ export default function JoinGroup() {
   };
   return (
     <div className={styles.group_div}>
+      <Head title="어스 | 그룹 참가" description="매일 하나의 질문이 만드는 세상" />
       <div className={[styles.container, "group-div"].join(" ")}>
         <h1 className={styles.title}>그룹 가입하기</h1>
         <div className={styles.join_div}>

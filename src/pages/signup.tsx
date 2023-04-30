@@ -4,6 +4,7 @@ import Link from "next/link";
 import axios from "axios";
 import { setCookie, getCookie } from "@/components/Cookie";
 import Image from "next/image";
+import Head from "@/components/Head";
 
 export default function Login() {
   const [windowSize, setWindowSize] = useState(0);
@@ -120,6 +121,7 @@ export default function Login() {
 
   return (
     <div>
+      <Head title="어스 | 회원가입" description="매일 하나의 질문이 만드는 세상" />
       <div className={[styles.login_div, "login-div"].join(" ")}>
         <div className={styles.login_child}>
           <div className={styles.login_child_div}>

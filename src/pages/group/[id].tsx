@@ -6,6 +6,7 @@ import { getCookie } from "@/components/Cookie";
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import GroupList from "@/components/GroupList";
+import Head from "@/components/Head";
 
 export default function GroupHistory() {
   const router = useRouter();
@@ -92,6 +93,7 @@ export default function GroupHistory() {
 
   return (
     <div className={styles.group_div}>
+      <Head title="어스 | 그룹" description="매일 하나의 질문이 만드는 세상" />
       <div className={styles.container}>
         <h1 className={styles.title}>{groupName}</h1>
         <div className={styles.question_div}>

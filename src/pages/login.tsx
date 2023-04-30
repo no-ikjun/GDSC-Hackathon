@@ -3,6 +3,7 @@ import styles from "../styles/Login.module.css";
 import Link from "next/link";
 import { setCookie, getCookie, removeCookie } from "@/components/Cookie";
 import axios from "axios";
+import Head from "@/components/Head";
 
 export default function Login() {
   const [windowSize, setWindowSize] = useState(0);
@@ -47,6 +48,7 @@ export default function Login() {
   };
   return (
     <div>
+      <Head title="어스 | 로그인" description="매일 하나의 질문이 만드는 세상" />
       <div className={[styles.login_div, "login-div"].join(" ")}>
         <div className={styles.login_child}>
           <div className={styles.login_child_div}>

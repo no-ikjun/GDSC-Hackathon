@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { getCookie } from "@/components/Cookie";
 import { useRouter } from "next/router";
+import Head from "@/components/Head";
 
 interface Answer {
   answer: string;
@@ -78,6 +79,7 @@ export default function Public() {
 
   return (
     <div className={styles.group_div}>
+      <Head title="어스 | 모두의 기록" description="매일 하나의 질문이 만드는 세상" />
       <div className={styles.container}>
         <h1 className={styles.title}>모두의 기록</h1>
         <div className={styles.question_div}>
