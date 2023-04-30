@@ -4,11 +4,10 @@ import styles from "../styles/Group.module.css";
 interface GroupInfoProps {
   name: string;
   age: string;
-  time: string;
   answer: string;
 }
 
-export default function Answer({ name, age, time, answer }: GroupInfoProps) {
+export default function Answer({ name, age, answer }: GroupInfoProps) {
   return (
     <div className={styles.answer_content_div}>
       <div className={styles.answer_profile_div}>
@@ -17,9 +16,7 @@ export default function Answer({ name, age, time, answer }: GroupInfoProps) {
         </div>
         <div style={{ display: "flex", flexDirection: "column", height: 40 }}>
           <p className={styles.answer_profile_name}>{name}의 답변</p>
-          <p className={styles.answer_profile_time}>
-            {age} · {time} 전
-          </p>
+          <p className={styles.answer_profile_time}>{age} 전</p>
         </div>
       </div>
       <p className={styles.answer_content_main}>{answer}</p>

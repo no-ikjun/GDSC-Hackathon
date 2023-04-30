@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/NavBar.module.css";
 import { getCookie } from "./Cookie";
+import { sign } from "crypto";
 
 export default function NavBar() {
   const router = useRouter();
@@ -18,8 +19,9 @@ export default function NavBar() {
   }, []);
   return (
     <nav className={styles.navbar}>
-      <Link href="/">
-        <Image src="/logo.png" width={90} height={50} alt="logo" className={styles.nav_logo_img} />
+      <Link href="/" style={{ textDecoration: "none", marginRight: 70 }}>
+        <Image src="/main.png" width={50} height={50} alt="logo" className={styles.nav_logo_img} />
+        <span style={{ color: "#f49d95", position: "absolute", top: "23px", fontSize: 20, fontFamily: "sunshine_Bold" }}>어스</span>
       </Link>
       <Link href="/group" className={styles.nav_link_a}>
         <span className={styles.nav_link}>그룹</span>
