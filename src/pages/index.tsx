@@ -13,8 +13,8 @@ export default function Home() {
   const getTodayQuestion = async () => {
     const date = undefined;
     const question_uuid = undefined;
-    //const response = await axios.get(`https://controlz-test.com/qna/random`);
-    setQuestion("살면서 가장 행복했던 순간은?");
+    const response = await axios.get(`https://controlz-test.com/qna/random`);
+    setQuestion(response.data.question);
   };
 
   useEffect(() => {

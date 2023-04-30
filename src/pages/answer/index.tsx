@@ -1,10 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../../styles/Answer.module.css";
 import Link from "next/link";
 import IndexPage from "@/components/Head";
+import { getCookie } from "@/components/Cookie";
+import axios from "axios";
 
 export default function Answer() {
   const [answer, setAnswer] = useState("");
+  const getQuestion = async () => {
+    const token = getCookie("token");
+    const base64url = token.split(".")[1];
+    const base64 = base64url.replace("-", "+").replace("_", "/");
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map(function (c) {
+          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join("")
+    );
+
+    const jsonData = JSON.parse(jsonPayload);
+
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    const response = await axios
+      .get(`https://controlz-test.com/qna/all/answer?user_uuid=${jsonData.user_uuid}`)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    getQuestion();
+  }, []);
   return (
     <div className={styles.answer_div}>
       <div className={styles.container}>

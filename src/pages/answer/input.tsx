@@ -24,7 +24,6 @@ export default function InputAnswer() {
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
-    const cookies = getCookie("token");
     const token = getCookie("token");
     const base64url = token.split(".")[1];
     const base64 = base64url.replace("-", "+").replace("_", "/");
@@ -46,11 +45,13 @@ export default function InputAnswer() {
       answer: answer,
       isPublic: isCheck,
     };
-    console.log(form);
     const request = await axios
       .post(`https://controlz-test.com/qna/submit/answer`, form)
       .then((res) => {
         console.log(res);
+        if (res.status === 201) {
+          window.location.href = "/answer";
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -72,12 +73,12 @@ export default function InputAnswer() {
           <div className={styles.input_div}>
             <input type="text" placeholder="오늘의 질문에 답변을 입력하세요!" onChange={answerHandler} className={styles.input} />
           </div>
-          <span style={{ marginTop: 20, fontSize: 20 }}>
+          <span style={{ marginTop: 20, fontSize: 20, fontFamily: "sunshine_regular" }}>
             {" "}
             그룹 외의 사람들과 공유하기 <input type="checkbox" onClick={(e) => checkHandler(e)} onChange={checkHandler} checked={isCheck} />{" "}
           </span>
-          <button className={styles.input_btn} onClick={onSubmit}>
-            제출하기
+          <button className={styles.input_btn} onClick={onSubmit} style={{ backgroundColor: `${isCheck ? "#a412ff" : "#0055ff"}` }}>
+            {isCheck ? "모두와 공유" : "그룹에만 공유"}
           </button>
         </div>
       </div>
