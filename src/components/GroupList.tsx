@@ -9,8 +9,13 @@ interface GroupListProps {
   questionUuid: string;
 }
 
+interface Answer {
+  answer: string;
+  nickname: string;
+}
+
 export default function GroupList({ groupUuid, questionUuid }: GroupListProps) {
-  const [answerList, setAnswerList] = useState([]);
+  const [answerList, setAnswerList] = useState<Answer[]>([]);
 
   const getData = useCallback(async () => {
     const token = getCookie("token");
@@ -44,23 +49,19 @@ export default function GroupList({ groupUuid, questionUuid }: GroupListProps) {
     if (!groupUuid || !questionUuid) return;
     setTimeout(() => {
       getData();
-    }, 3000);
+    }, 1000);
   }, [getData, groupUuid, questionUuid]);
 
   return (
     <div>
       {answerList.map((answer) => {
         return (
-          <div key={answer}></div>
-          //<Answer name={answer.user_name} age={answer.user_age} answer={answer.answer} />
+          <>
+            <Answer name={answer.nickname} answer={answer.answer} />
+            <hr className={styles.answer_hr} />
+          </>
         );
       })}
-      <Answer name="최익준" age="20대" answer="노래 듣기?" />
-      <hr className={styles.answer_hr} />
-      <Answer name="오다현" age="20대" answer="잠자기" />
-      <hr className={styles.answer_hr} />
-      <Answer name="이호성" age="10대" answer="굿굿" />
-      <hr className={styles.answer_hr} />
     </div>
   );
 }

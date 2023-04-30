@@ -79,7 +79,7 @@ export default function Public() {
   return (
     <div className={styles.group_div}>
       <div className={styles.container}>
-        <h1 className={styles.title}>구웃</h1>
+        <h1 className={styles.title}></h1>
         <div className={styles.question_div}>
           <PublicQuestion />
         </div>
@@ -110,15 +110,7 @@ export default function Public() {
           </button>
         </div>
         {answers.map((temp) => {
-          return (
-            <Answer
-              name={"익명의 누군가"}
-              age={`${temp.age}대`}
-              time={`${Math.floor((new Date(Date.parse(temp.created_at)).getTime() + 9000 * 3600 - now.getTime()) / 600000)}분`}
-              answer={temp.answer}
-              key={temp.created_at}
-            />
-          );
+          return <Answer name={"익명의 누군가"} answer={temp.answer} key={temp.created_at} />;
           <hr className={styles.answer_hr} />;
         })}
       </div>

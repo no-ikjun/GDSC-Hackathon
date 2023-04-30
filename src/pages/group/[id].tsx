@@ -107,12 +107,6 @@ export default function GroupHistory() {
           </div>
         </div>
         <GroupList groupUuid={groupUuid} questionUuid={questionUuid} />
-        <Answer name="최익준" age="30대" answer="아니 프엔 개발을 혼자 하는게 말이 된다고 생각함?" />
-        <hr className={styles.answer_hr} />
-        <Answer name="오다현" age="20대" answer="아 자고싶다" />
-        <hr className={styles.answer_hr} />
-        <Answer name="이호성" age="10대" answer="저기서 데이터가 빈 칸일 경우에는 changed date에서 ... " />
-        <hr className={styles.answer_hr} />
       </div>
     </div>
   );
