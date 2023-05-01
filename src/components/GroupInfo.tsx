@@ -40,7 +40,7 @@ export default function GroupInfo({ name, date, members, code }: GroupInfoProps)
         })}
       </div>
       <div style={{ display: "inline-flex" }}>
-        <button className={styles.group_info_member_invite} onClick={copyCode} style={{ backgroundColor: "transparent", color: "#1a6dff" }}>
+        <button className={styles.group_info_member_invite} onClick={copyCode} style={{ backgroundColor: "transparent", color: "#efb5b0" }}>
           초대하기
         </button>
         <Link
