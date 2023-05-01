@@ -53,7 +53,7 @@ export default function Group() {
           for (var i = 0; i < temp.length; i++) {
             arr.push(temp[i].user_name);
           }
-          return <GroupInfo name={group.group_name} date={group.created_At.split("T")[0]} members={arr} code={group.group_uuid} key={group.group_uuid} />;
+          return <GroupInfo name={group.group_name} date={group.created_At.split("T")[0]} members={arr} code={group.group_code} key={group.group_uuid} />;
         })}
         <div className={styles.group_info_div} style={{ height: 200, display: "inline-flex", textAlign: "center" }}>
           <Link href="/group/join" className={styles.group_create_btn}>
